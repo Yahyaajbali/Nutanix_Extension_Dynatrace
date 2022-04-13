@@ -1,0 +1,202 @@
+{
+  "name": "custom.remote.python.nutanix",
+  "version": "1.0.3",
+  "type": "python",
+  "entity": "CUSTOM_DEVICE",
+  "metricGroup": "tech.Custom_Technology",
+  "processTypeNames": ["nutanix"],
+  "technologies": ["Nutanix AHV"],
+  "favicon": "https://lh3.googleusercontent.com/gN6iBKP1b2GTXZZoCxhyXiYIAh8QJ_8xzlhEK6csyDadA4GdkEdIEy9Bc8s5jozt1g=w300",
+  "source": {
+    "package": "plugin",
+    "className": "PluginRemote",  
+    "install_requires": ["requests>=2.6.0"],
+    "activation": "Remote"
+  },
+  "metrics": [
+    {
+      "entity": "CUSTOM_DEVICE",
+      "timeseries": {
+        "key": "avg_io_latency_usecs",
+        "unit": "Count",
+        "displayname": "IO Latency"
+      }
+    },
+    {
+      "entity": "CUSTOM_DEVICE",
+      "timeseries": {
+        "key": "content_cache_hit_ppm",
+        "unit": "Count",
+        "displayname": "Content Cache"
+      }
+    },
+    {
+      "entity": "CUSTOM_DEVICE",
+      "timeseries": {
+        "key": "content_cache_logical_memory_usage_bytes",
+        "unit": "Count",
+        "displayname": "content_cache_logical_memory_usage_bytes"
+      }
+    },
+    {
+      "entity": "CUSTOM_DEVICE",
+      "timeseries": {
+        "key": "content_cache_num_dedup_ref_count_pph",
+        "unit": "Count",
+        "displayname": "content_cache_num_dedup_ref_count_pph"
+      }
+    },
+    {
+      "entity": "CUSTOM_DEVICE",
+      "timeseries": {
+        "key": "content_cache_num_lookups",
+        "unit": "Count",
+        "displayname": "content_cache_num_lookups"
+      }
+    },
+    {
+      "entity": "CUSTOM_DEVICE",
+      "timeseries": {
+        "key": "content_cache_physical_memory_usage_bytes",
+        "unit": "Count",
+        "displayname": "content_cache_physical_memory_usage_bytes"
+      }
+    },
+    {
+      "entity": "CUSTOM_DEVICE",
+      "timeseries": {
+        "key": "controller_avg_io_latency_usecs",
+        "unit": "Count",
+        "displayname": "controller_avg_io_latency_usecs"
+      }
+    },
+    {
+      "entity": "CUSTOM_DEVICE",
+      "timeseries": {
+        "key": "controller_avg_write_io_latency_usecs",
+        "unit": "Count",
+        "displayname": "controller_avg_write_io_latency_usecs"
+      }
+    },
+    {
+      "entity": "CUSTOM_DEVICE",
+      "timeseries": {
+        "key": "controller_avg_write_io_size_kbytes",
+        "unit": "Count",
+        "displayname": "controller_avg_write_io_size_kbytes"
+      }
+    },
+  
+    {
+      "entity": "CUSTOM_DEVICE",
+      "timeseries": {
+        "key": "hypervisor_cpu_usage_ppm",
+        "unit": "Count",
+        "displayname": "hypervisor_cpu_usage_ppm"
+      }
+    },
+    {
+      "entity": "CUSTOM_DEVICE",
+      "timeseries": {
+        "key": "hypervisor_memory_usage_ppm",
+        "unit": "Count",
+        "displayname": "hypervisor_memory_usage_ppm"
+      }
+    }
+  ],
+    "properties" : [
+    {
+	  "key" : "url",
+      "type" :  "String"
+    },
+    {"key" : "password",
+      "type" :  "String"
+    },
+    {"key" : "username",
+      "type" :  "String"
+    }
+    
+  ],
+  "configUI": {
+        "displayName": "ActiveGate Nutanix Extension",
+        "properties": [
+			{"key" : "url",
+			"displayName" :  "URL",
+			"displayHint": "https://localhost:port" },
+      {
+        "key": "username",
+        "displayName": "Username",
+        "displayHint": "username"
+      },
+      {
+        "key": "password",
+        "displayName": "Password",
+        "displayHint": "password"
+      }
+	  ]
+
+    },
+     "ui": {
+       "keymetrics" : [
+      {
+        "key": "avg_io_latency_usecs",
+        "aggregation": "avg",
+        "mergeaggregation": "avg",
+        "displayname": "avg io latency"
+      },
+      {
+        "key": "content_cache_hit_ppm",
+        "aggregation": "avg",
+        "mergeaggregation": "avg",
+        "displayname": "content cache hit"
+      },
+      {
+        "key": "hypervisor_cpu_usage_ppm",
+        "aggregation": "avg",
+        "mergeaggregation": "avg",
+        "displayname": "Hypervisor CPU Usage"
+      },
+      {
+        "key": "hypervisor_memory_usage_ppm",
+        "aggregation": "avg",
+        "mergeaggregation": "avg",
+        "displayname": "Hypervisor Memory Usage"
+      }
+    ],
+        "charts": [
+            {
+                "group": "cpu_memory_chart",
+                "title": "CPU & Memory Usage",
+                "description": "description",
+                "explanation": "this graph shows the CPU and Memory usage of the hypervisor",
+                "link": "link",
+                "series": [
+                    {
+                        "key": "hypervisor_cpu_usage_ppm",
+                        "displayname": "CPU Usage",
+                        "aggregation": "avg",
+                        "mergeaggregation": "avg",
+                        "color": "#00a6fb",
+                        "seriestype": "line",
+                        "rightaxis": false,
+                        "stacked": false,
+                        "unit": "Count",
+                        "metricexplanation": "Not used"
+                    },
+                    {
+                        "key": "hypervisor_memory_usage_ppm",
+                        "displayname": "Memory Usage",
+                        "aggregation": "avg",
+                        "mergeaggregation": "avg",
+                        "color": "#008cdb",
+                        "seriestype": "line",
+                        "rightaxis": false,
+                        "stacked": false,
+                        "unit": "Count",
+                        "metricexplanation": "Not used"
+                    }
+                ]
+            }
+        ]
+    }
+}
