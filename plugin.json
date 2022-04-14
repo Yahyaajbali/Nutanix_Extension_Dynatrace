@@ -1,6 +1,6 @@
 {
   "name": "custom.remote.python.nutanix",
-  "version": "1.0.3",
+  "version": "1.0.4",
   "type": "python",
   "entity": "CUSTOM_DEVICE",
   "metricGroup": "tech.Custom_Technology",
@@ -35,7 +35,7 @@
       "timeseries": {
         "key": "content_cache_logical_memory_usage_bytes",
         "unit": "Count",
-        "displayname": "content_cache_logical_memory_usage_bytes"
+        "displayname": "Content Cache : Logical Memory Usage Bytes"
       }
     },
     {
@@ -43,7 +43,7 @@
       "timeseries": {
         "key": "content_cache_num_dedup_ref_count_pph",
         "unit": "Count",
-        "displayname": "content_cache_num_dedup_ref_count_pph"
+        "displayname": "Content Cache : Num Dedup Ref Count pph"
       }
     },
     {
@@ -51,7 +51,7 @@
       "timeseries": {
         "key": "content_cache_num_lookups",
         "unit": "Count",
-        "displayname": "content_cache_num_lookups"
+        "displayname": "Content Cache : Num Lookups"
       }
     },
     {
@@ -59,7 +59,7 @@
       "timeseries": {
         "key": "content_cache_physical_memory_usage_bytes",
         "unit": "Count",
-        "displayname": "content_cache_physical_memory_usage_bytes"
+        "displayname": "Content Cache : Physical Memory Usage bytes"
       }
     },
     {
@@ -67,7 +67,7 @@
       "timeseries": {
         "key": "controller_avg_io_latency_usecs",
         "unit": "Count",
-        "displayname": "controller_avg_io_latency_usecs"
+        "displayname": "Controller : Avg IO Latency usecs"
       }
     },
     {
@@ -75,7 +75,7 @@
       "timeseries": {
         "key": "controller_avg_write_io_latency_usecs",
         "unit": "Count",
-        "displayname": "controller_avg_write_io_latency_usecs"
+        "displayname": "Controller : Avg Write IO Latency usecs"
       }
     },
     {
@@ -83,7 +83,7 @@
       "timeseries": {
         "key": "controller_avg_write_io_size_kbytes",
         "unit": "Count",
-        "displayname": "controller_avg_write_io_size_kbytes"
+        "displayname": "Controller : Avg Write IO Size kbytes"
       }
     },
   
@@ -92,28 +92,33 @@
       "timeseries": {
         "key": "hypervisor_cpu_usage_ppm",
         "unit": "Count",
-        "displayname": "hypervisor_cpu_usage_ppm"
+        "displayname": "Hypervisor : Cpu Usage ppm"
       }
     },
     {
       "entity": "CUSTOM_DEVICE",
       "timeseries": {
-        "key": "hypervisor_memory_usage_ppm",
+        "key": "Hypervisor : Memory Usage ppm",
         "unit": "Count",
-        "displayname": "hypervisor_memory_usage_ppm"
+        "displayname": "Hypervisor : Memory Usage ppm"
       }
     }
   ],
     "properties" : [
     {
-	  "key" : "url",
-      "type" :  "String"
+	    "key" : "url",
+      "type" :  "String",
+      "format" : "url"
     },
-    {"key" : "password",
-      "type" :  "String"
+    {
+      "key" : "username",
+      "type" :  "String",
+      "format" : "text"
     },
-    {"key" : "username",
-      "type" :  "String"
+    {
+      "key" : "password",
+      "type" :  "String",
+      "format" : "password"
     }
     
   ],
