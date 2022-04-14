@@ -98,7 +98,7 @@
     {
       "entity": "CUSTOM_DEVICE",
       "timeseries": {
-        "key": "Hypervisor : Memory Usage ppm",
+        "key": "hypervisor_memory_usage_ppm",
         "unit": "Count",
         "displayname": "Hypervisor : Memory Usage ppm"
       }
